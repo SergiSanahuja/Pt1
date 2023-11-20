@@ -57,6 +57,7 @@ function calcularPreu(){
 	let dataArribada=Date.parse(document.getElementById('dataArribada').value);
 	let dataFi=Date.parse(document.getElementById('dataFi').value);
 	let pais=document.getElementById('pais').value;
+	let descompte=document.getElementById('descompte').checked;
 	let numPersones=document.getElementById('numPersones').value;
 	if(!dataArribada||!dataFi||!pais||!numPersones){return};
 	let difDies= (dataFi-dataArribada)/1000/60/60/24;
@@ -69,10 +70,12 @@ function calcularPreu(){
 		if(element==pais){
 			let preuNit=arrayPais[index+1];
 			let preuVol=arrayPais[index+2];
-			let preuFinal = (preuVol*numPersones)+(difDies*preuNit*numPersones);
+			let preuFinal=0;
+			if(descompte){preuFinal = ((preuVol*numPersones)+(difDies*preuNit*numPersones))*0.80;}
+			else{preuFinal = (preuVol*numPersones)+(difDies*preuNit*numPersones);}
 			let estil = { style: "currency", currency: "EUR" };
     		let f = new Intl.NumberFormat('es-ES', estil);
-			document.getElementById("preuFinal").setAttribute("value", preuFinal);
+			document.getElementById("preuFinal").setAttribute("value", preuFinal.toFixed(2));
 		}
 		
 	}
@@ -95,15 +98,17 @@ function init() {
 		calcularPreu();
 	});
 	
-
+	//afegir les opcions dels paisos depenent del continent.
 	document.getElementById('continent').addEventListener('change', function() {
+		
+		//agafem el llistat dels paisos.
 		
 		let tPais = document.getElementsByTagName('tr');
 		let id = document.getElementById('continent').value;	
 		document.getElementById('pais').innerHTML = "";
 
 		//alert(typeof(tPais.innerHTML));
-		
+		//afegir els paisos del continent seleccionat.
 		let arrayPais = tPais[id-1].innerHTML.replaceAll("</td>","").split('<td>');
 				
 		arrayPais.forEach(x => { 
@@ -126,7 +131,7 @@ function init() {
 	document.getElementById('dataArribada').addEventListener('change', calcularPreu);
 	document.getElementById('dataFi').addEventListener('change', calcularPreu);
 	document.getElementById('numPersones').addEventListener('change', calcularPreu);
-
+	document.getElementById('descompte').addEventListener('click', calcularPreu);
 
 }
 

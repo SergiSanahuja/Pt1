@@ -7,7 +7,17 @@
     <script defer src="../controlador/controlador.js"></script>
 </head>
 <body>
+
 <?php require_once'../controlador/controlador.php'; ?>
+<table id="tablaPaises" hidden>
+        <?php echo $paisEuropa;
+        echo $paisAmerica;
+        echo $paisAsia;
+        echo $paisOceania;
+        echo $paisAfrica;
+         ?>
+
+    </table>
     <div class="navegació">
 
         <header>
@@ -15,7 +25,7 @@
                 <img height="100px" src="../img/logo.png"></img>
             </div>
             <div class="titulo">
-                Wanderfull travel
+            wonderful travel
             </div>
             <div class="Rellotje">
                 <div id="data" class="datahora"></div><br><br>
@@ -31,12 +41,12 @@
         <form action="../controlador/controlador.php" method="post">
             <br>
             <label>
-                Data Arribada: <input type="date" onchange='document.getElementById("dataFi").setAttribute("min", document.getElementById("dataArribada").value)' name="dataArribada" id="dataArribada" value="<?php if(isset($dataArribada)){echo $dataArribada;}?>" ><br>
-                Data Fi:       <input type="date" name="dataFi" id="dataFi" value="<?php if(isset($dataFi)){echo $dataFi;}?>" >
+                Data Arribada: <br><input type="date" onchange='document.getElementById("dataFi").setAttribute("min", document.getElementById("dataArribada").value)' name="dataArribada" id="dataArribada" value="<?php if(isset($dataArribada)){echo $dataArribada;}?>" ><br>
+                Data Fi:    <br>   <input type="date" name="dataFi" id="dataFi" value="<?php if(isset($dataFi)){echo $dataFi;}?>" >
             </label>
             <br>
             <label>
-                Destí:
+                Destí: <br>
                 <select name="continent" id="continent" required>
                     <option value="0" selected>Selsecciona un pais</option>                
                     <option value="1" >Europa</option>
@@ -44,7 +54,6 @@
                     <option value="2">America</option>
                     <option value="4">Oceania</option>
                     <option value="5">Africa</option>
-                    <option value="6">Antartida</option>
             </select>
             
             <select name="pais" id="pais"  required>
@@ -53,28 +62,41 @@
             </label>
             <br>
             <label>
-                Preu:  <input type="text" name="preuFinal" id="preuFinal"  readonly> €
+                Preu: <br> <input type="text" name="preuFinal" id="preuFinal"  readonly> €
             </label>
             <br>
             <label>
-                Nom: <input type="text" name="nom" id="nom" minlength="1" value="<?php if(isset($nom)){echo $nom;}?>" maxlength="10">
+                Nom: <br> <input type="text" name="nom" id="nom" required minlength="1" value="<?php if(isset($nom)){echo $nom;}?>" maxlength="10">
             </label>
             <br>
             <label>
-                Telèf: <input type="text" name="telefon" id="telefon" minlength="9" maxlength="9" value="<?php if(isset($telefon)){echo $telefon;}?>" >
+                Telèf: <br> <input type="text" name="telefon" id="telefon" required minlength="9" maxlength="9" value="<?php if(isset($telefon)){echo $telefon;}?>" >
             </label>
             <br>
             <label>
-                Persones: <input type="number" name="numPersones" id="numPersones" min="1" max="10" value="<?php if(isset($numPersones)){echo $numPersones;}?>" >
+                Persones: <br> <input type="number" name="numPersones" id="numPersones" required min="1" max="10" value="<?php if(isset($numPersones)){echo $numPersones;}?>" >
             </label>
             <br>
             <label>
                 <input type="checkbox" name="descompte" value="checked" id="descompte"/> Descompte 20%
             </label>
             <input type="submit" value="Afegir">
+            <div id="mensaje">
+            
+            <?php 
+                if(isset($_GET["mensaje"])){
+                    echo($_GET["mensaje"]);
+                    $_GET["mensaje"]="";
+                }
+            ?>
+            </div>
+
         </form>
-        <div id="viatges">
+        <div>
             Viatges Guardats
+            <?php
+             echo(mostarViatges());
+            ?>
         </div>
         
     </div>
@@ -85,15 +107,7 @@
 
 
 
-    <table id="tablaPaises" hidden>
-        <?php echo $paisEuropa;
-        echo $paisAmerica;
-        echo $paisAsia;
-        echo $paisOceania;
-        echo $paisAfrica;
-         ?>
 
-    </table>
     </body>
     
 </html>

@@ -147,3 +147,47 @@ form input[type="submit"]:hover{
     margin-right: 50PX;
 
 }
+
+#mensaje{
+    color: green;
+}
+#viatges tr td img{
+    width: 100px;
+    height: 100px;
+
+}
+
+#viatges {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border: 5px solid;
+    border-color: #017861;
+}
+#viatges thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+#viatges th,
+#viatges td {
+    padding: 12px 15px;
+}
+#viatges tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+#viatges tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+#viatges tbody tr:nth-of-type(odd) {
+    background-color: #d5d5d5;
+}
+
+#viatges tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}

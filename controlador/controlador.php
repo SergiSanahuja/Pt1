@@ -12,6 +12,8 @@ $paisAfrica=generarTaula(5);
     
 
 
+
+
 function generarTaula($num){
     $html="";
 
@@ -59,11 +61,15 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     if(isset($_POST["descompte"])){
         $descompte=true;
     }else{$descompte = false;}
-    
+    echo"<script>alert(".$preuFinal.")</script>";
+   if($dataArribada&&$dataFi&&$nom&&$nomContinent&&$nomPais&&$telefon&&$numPersones&&$preuFinal){
+    insertarViatge($nom,$telefon,$numPersones,$preuFinal,$nomPais,$descompte,$dataArribada,$dataFi);
+    header("Location: ../vista/index.php?mensaje=Viatge+Afegit");
+    exit();
+   }
+    //mostarViatges();
 
-    //insertarViatge($nom,$telefon,$numPersones,$preuFinal,$id_pais,$dataArribada,$dataFi);
-    
-    echo '<script>console.log("'.$descompte.$dataArribada. $dataFi. $nom. $nomContinent.$nomPais.$telefon.$numPersones.'");</script>';
+    //echo '<script>console.log("'.$descompte.$dataArribada. $dataFi. $nom. $nomContinent.$nomPais.$telefon.$numPersones.'");</script>';
     
 }
 
