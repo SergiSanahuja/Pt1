@@ -136,19 +136,4 @@ function init() {
 }
 
 
-function selectPreu(pais) {
-	
-}
-
-
-
-
-
-/*******Conect to BD ******/
-
-function connect() {
-	
-}
-
-
 window.onload = init();  
