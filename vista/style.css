@@ -1,0 +1,149 @@
+ul{
+    display: flex;
+}
+
+li{
+    list-style: none;
+    margin: 0 10px;
+}
+
+*{
+    margin:0px;
+}
+
+/*************************** Style del header ***********************/
+
+.navegació{
+    background-color: #4e5861;
+
+}
+
+header{
+    background-color: #4e5861;
+    padding: 10px;
+    color: white;
+    display: flex;
+
+    justify-content: space-between;
+}
+
+/* Div Logo */
+.logo{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+
+/* Div del rellotge */
+.Rellotje{
+    display: flex;
+    right: 0px;
+    background-color: #4e5861;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+/*Titul de la pàgina*/
+.titulo{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    align-items: right;
+    background-color: #4e5861;
+    color: white;
+    padding: 10px;
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin: 10px;
+}
+div.datahora{font-size:1.2em; 
+    font-weight:bold; 
+    color:white; 
+    text-align:center; 
+    border-radius:0.9em; 
+    background-image:linear-gradient(#04376a, #4578ab); 
+    width:9em; padding:0.4em 0;
+}
+
+/*****************************style formulario************************/
+
+.formulari{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+form{
+
+    width:500px;
+	padding:16px;
+	border-radius:10px;
+	background-color:rgb(147, 204, 241);
+    justify-content: space-between;
+    text-align: left;
+}
+
+form select{
+    width: 200px;
+}
+
+input[readonly] {
+    cursor:not-allowed;
+  }
+
+form label{
+	width:72px;
+	height: auto;
+	font-weight:bold;
+	display:inline;
+}
+
+form select,
+form input{
+	width:180px;
+	padding:3px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin:8px 0;
+	display:inline-block;
+}
+
+
+
+form input[type="submit"]{
+	width:100%;
+	padding:8px 16px;
+	margin-top:32px;
+	border:1px solid #000;
+	border-radius:5px;
+	display:block;
+	color:#fff;
+	background-color:rgb(11, 91, 116);
+} 
+
+form input[type="submit"]:hover{
+	cursor:pointer;
+}
+
+#imagenes img{
+    height: 400px;
+    width: 400px;
+
+    margin-right: 50PX;
+
+}
