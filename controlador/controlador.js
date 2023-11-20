@@ -2,7 +2,11 @@
 /*********************************Funcio rellotge*************************** */
 
 
-
+/**
+ * 
+ * @param Date ara 
+ * @returns string html
+ */
 
 function rellotge(ara) {
 	//ara = new Date("2004-01-01T08:00:00")
@@ -29,6 +33,9 @@ function rellotge(ara) {
     return HTML;
 }
 
+/**
+ * funcio que et posa la data minima de arribada i fi.
+ */
 function dataMinima() {
 	var today = new Date();
 	var dd = today.getDate();
@@ -59,7 +66,9 @@ function calcularPreu(){
 	let pais=document.getElementById('pais').value;
 	let descompte=document.getElementById('descompte').checked;
 	let numPersones=document.getElementById('numPersones').value;
+
 	if(!dataArribada||!dataFi||!pais||!numPersones){return};
+	
 	let difDies= (dataFi-dataArribada)/1000/60/60/24;
 	let tPais = document.getElementsByTagName('tr');
 	let id = document.getElementById('continent').value;
