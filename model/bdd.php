@@ -118,13 +118,33 @@ function mostarViatges(){
     
     $connexio=tancarBDD($connexio);
 
-    $html="<table id='viatges'><thead><td>id</td><td>'nom'</td><td>'Telefon'</td><td>'Persones'</td><td>'Preu'</td><td>'Descompte'</td><td>'Pais'</td><td>'Data Inici'</td><td>'Data Fi'</td><td>'Imatge'</td></thead>";
+    // $html="<table id='viatges'><thead><td>id</td><td>'nom'</td><td>'Telefon'</td><td>'Persones'</td><td>'Preu'</td><td>'Descompte'</td><td>'Pais'</td><td>'Data Inici'</td><td>'Data Fi'</td><td>'Imatge'</td></thead>";
+    // foreach ($resultat as $viatge) {
+    //   $html.="<tr>";
+    //   $html.="<td>".$viatge["id"]."</td>"."<td>".$viatge["nom"]."</td>"."<td>".$viatge["telefon"]."</td>"."<td>".$viatge["num_persones"]."</td>"."<td>".$viatge["preu_final"]."</td>"."<td>".$viatge["descompte"]."</td>"."<td>".$viatge["nom_pais"] ."</td>"."<td>".$viatge["data_inici"]."</td>"."<td>".$viatge["data_fi"]."</td>"."<td> <img src="."../img/".$viatge["nom_pais"].".jpg></img></td>";
+    //   $html.="</tr>";
+    // }
+    // $html.="</table>";
+
+
+    $html="";
     foreach ($resultat as $viatge) {
-      $html.="<tr>";
-      $html.="<td>".$viatge["id"]."</td>"."<td>".$viatge["nom"]."</td>"."<td>".$viatge["telefon"]."</td>"."<td>".$viatge["num_persones"]."</td>"."<td>".$viatge["preu_final"]."</td>"."<td>".$viatge["descompte"]."</td>"."<td>".$viatge["nom_pais"] ."</td>"."<td>".$viatge["data_inici"]."</td>"."<td>".$viatge["data_fi"]."</td>"."<td> <img src="."../img/".$viatge["nom_pais"].".jpg></img></td>";
-      $html.="</tr>";
+      $html.="<div class='viatge'>";
+      $html.="<div class='imatge'><img src="."../img/".$viatge["nom_pais"].".jpg class='imatge'></img></div>";
+      $html.="<div class='info'>";
+      $html.="<div class='nom'>".$viatge["nom"]."</div>";
+      $html.="<div class='telefon'>".$viatge["telefon"]."</div>";
+      $html.="<div class='persones'>".$viatge["num_persones"]."</div>";
+      $html.="<div class='preu'>".$viatge["preu_final"].'€'."</div>";
+      $html.="<div class='pais'>".$viatge["nom_pais"] ."</div>";
+      $html.="<div class='dataInici'>".$viatge["data_inici"]."</div>";
+      $html.="<div class='dataFi'>".$viatge["data_fi"]."</div>";
+      $html.="</div>";
+      $html.="<div class='eliminar' id='eliminar'>"."<button type='button' class='btn'><i class='fa fa-trash'></i></button></a>"."</div>";
+      $html.="</div>";
     }
-    $html.="</table>";
+    
+
    return $html;
   }catch(Exception $e){
     echo($e);
