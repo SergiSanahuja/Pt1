@@ -136,6 +136,13 @@ function init() {
 	});
 
 
+	document.getElementById('ordenar').addEventListener('change', function() {
+		let ordenarID=document.getElementById('ordenar').value;
+		let ruta="http://localhost/Proyecto/Pt1/vista/index.php?orden="+ordenarID;
+	 	window.location.href=ruta;
+		
+	});
+
 
 	document.getElementById('dataArribada').addEventListener('change', calcularPreu);
 	document.getElementById('dataFi').addEventListener('change', calcularPreu);

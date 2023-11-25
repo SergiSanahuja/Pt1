@@ -9,7 +9,12 @@ $paisAmerica=generarTaula(2);
 $paisAsia=generarTaula(3);
 $paisOceania=generarTaula(4);
 $paisAfrica=generarTaula(5);
-    
+
+/*
+$viatgesPais=mostarViatges("Pais");
+$viatgesDataInici=mostarViatges("DataInici");
+$viatgesDataInici=mostarViatges("id");
+*/    
 
 
 

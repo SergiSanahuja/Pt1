@@ -96,11 +96,27 @@
             </div>
 
         </form>
+        <br>
+      
+    
     </div>
+        <select name="ordenar" id="ordenar" required>
+            
+            <option value="0">Selecciona per ordenar</option>                
+            <option value="1">Ordenat per Pais</option>                
+            <option value="2">Ordenat per data </option>
+            <option value="3">Ordenat per id</option>
+        </select>
+      
         <div class="taulaViatges">
             
             <?php
-             echo(mostarViatges());
+            
+            if(isset($_GET["orden"])){
+                if($_GET["orden"]=="1"){echo(mostarViatges("Pais"));}
+                elseif($_GET["orden"]=="2"){echo(mostarViatges("DataInici"));}
+                elseif($_GET["orden"]=="3"){echo(mostarViatges("id"));}
+            }//else{echo(mostarViatges("Pais"));}
             ?>
         </div>
         

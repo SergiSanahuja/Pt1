@@ -167,6 +167,13 @@ form input[type="submit"]:hover{
 
 }
 
+.info{
+    color: rgb(5, 0, 5);
+    margin-left: 10px;
+}
+
+
+
 #mensaje{
     color: green;
 }
@@ -221,9 +228,11 @@ form input[type="submit"]:hover{
     flex-wrap: wrap;
 }
 .viatge:hover{
-    background-color: rgb(44, 35, 128);
-    border: rgb(42, 27, 172) 5px solid;
+    background-color: rgb(113, 102, 218);
+    border: rgb(27, 3, 240) 5px solid;
+    text-decoration-color: white;
     cursor: pointer;
+    transform: scale(1.3);
 }
 
 .viatge{
@@ -233,17 +242,15 @@ form input[type="submit"]:hover{
     align-items: center;
     margin: 10px;
     padding: 10px;
-    color: white;
     border-radius: 10px;
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     border: rgb(42, 27, 172) 5px solid;
+    transition: all 300ms;
 }
 
-.info{
-    color: rgb(5, 0, 5);
-}
+
 
 .imatge{
     width: 169px;

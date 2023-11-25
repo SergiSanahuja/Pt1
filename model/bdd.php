@@ -106,12 +106,16 @@ function insertarViatge($nom,$telefon,$numPersones,$preuFinal,$nomPais,$descompt
 /**
  * Crear la taula la qual mostra els viatges guardats a la bd
  */
-function mostarViatges(){
+function mostarViatges($ordre){
   try{
     $connexio=obrirBDD();
-    
-    $sentencia= "SELECT * FROM reserves";
-
+    if($ordre=="Pais"){
+      $sentencia= "SELECT * FROM reserves ORDER BY nom_pais";
+    }elseif($ordre=="DataInici"){
+      $sentencia= "SELECT * FROM reserves ORDER BY data_inici";
+    }elseif($ordre=="id"){
+      $sentencia= "SELECT * FROM reserves ORDER BY id";
+    }
     $array=array();
     
     $resultat=executarSentencia($sentencia,$array,$connexio);
@@ -140,7 +144,7 @@ function mostarViatges(){
       $html.="<div class='dataInici'>".$viatge["data_inici"]."</div>";
       $html.="<div class='dataFi'>".$viatge["data_fi"]."</div>";
       $html.="</div>";
-      $html.="<div class='eliminar' id='eliminar'>"."<button type='button' class='btn'><i class='fa fa-trash'></i></button></a>"."</div>";
+      $html.="<div class='eliminar' id='eliminar'>"."<a href='../controlador/esborrar.php?eliminarId=".$viatge['id']."'><button type='button' class='btn'><i class='fa fa-trash'></i></button></a>"."</div>";
       $html.="</div>";
     }
     
@@ -163,6 +167,18 @@ function tancarBDD($connexio){
     return $connexio;
     }
 
+
+function esborrarViatge($idViatge){
+$conn=obrirBDD();
+
+$sentencia="DELETE FROM reserves WHERE id=:idViatge";
+
+$array=array(':idViatge'=> $idViatge);
+
+executarSentencia($sentencia,$array,$conn);
+
+$conn=tancarBDD($conn);
+}
 
 
 ?>
